@@ -1,0 +1,11 @@
+#!/bin/bash
+
+read -p "Generate new ssh key? (y for yes)" gen_ssh_key
+if [[ $gen_ssh_key == "y" ]] 
+then
+  printf "Running ssh-keygen...\n"
+  ssh-keygen
+fi
+
+sudo apt install git cifs-utils tmux vim kpcli
+
