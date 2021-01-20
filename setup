@@ -9,3 +9,54 @@ fi
 
 sudo apt install git cifs-utils tmux vim kpcli
 
+PUBLIC_GITHUB_CLONES_DIR=~/public_github_clones
+mkdir -p $PUBLIC_GITHUB_CLONES_DIR
+
+cd $PUBLIC_GITHUB_CLONES_DIR
+git clone https://github.com/bnjmnbrmn-work/dotfiles
+cd ~
+ln -s $PUBLIC_GITHUB_CLONES_DIR/dotfiles/.bash_logout .
+ln -s $PUBLIC_GITHUB_CLONES_DIR/dotfiles/.bash_profile .
+ln -s $PUBLIC_GITHUB_CLONES_DIR/dotfiles/.bashrc .
+ln -s $PUBLIC_GITHUB_CLONES_DIR/dotfiles/.gitconfig .
+ln -s $PUBLIC_GITHUB_CLONES_DIR/dotfiles/.tmux.conf .
+ln -s $PUBLIC_GITHUB_CLONES_DIR/dotfiles/.profile .
+ln -s $PUBLIC_GITHUB_CLONES_DIR/dotfiles/.vimrc .
+
+. ~/.bashrc
+
+#Install pyenv and python
+cd $PUBLIC_GITHUB_CLONES_DIR
+git clone https://github.com/pyenv/pyenv.git 
+sudo apt-get update
+sudo apt-get install --no-install-recommends \
+  make build-essential libssl-dev zlib1g-dev \
+  libbz2-dev libreadline-dev libsqlite3-dev wget \
+  curl llvm libncurses5-dev xz-utils tk-dev \
+  libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+
+pyenv install 3.9.1
+pyenv install 2.7.18
+
+# need to be on 3M vpn
+pip install ansible
+pip install mercurial
+
+curl -s "https://get.sdkman.io" | bash
+
+sdk install java 11.0.9-zulu
+sdk install java 8.0.275-zulu
+sdk install java java 20.3.0.r11-grl
+sdk install gradle 6.8
+sdk install groovy 3.0.7
+sdk install scala 2.13.4
+sdk install sbt 1.4.6
+sdk install maven 3.6.3
+sdk install ant 1.10.8
+
+ln -s /media/mmshare/DevOps/CAPD/AdminPwd.kdbx .
+
+curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
+
+sudo apt install jq
+
