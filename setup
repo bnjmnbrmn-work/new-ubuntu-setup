@@ -60,3 +60,7 @@ curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64
 
 sudo apt install jq
 
+#https://www.jetbrains.com/toolbox-app/
+#install vim plugin, and add settings from settings.jar in 3m onedrive (od3m)
+
+#https://docs.docker.com/engine/install/ubuntu/
